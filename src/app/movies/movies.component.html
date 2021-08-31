@@ -1,0 +1,115 @@
+<div class="row">
+      <div class="col-md-3">
+        <app-category></app-category>
+      </div>
+      <div class="col-md-9">
+        <div *ngIf="!loading">
+            <div *ngIf="movies.length > 0; else no_movies">
+                <h1>{{ title }}</h1>
+        
+                <div class="mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="filterText" (ngModelChange)="onInputChange()" placeholder="Search">
+                    <small class="text-muted" *ngIf="filterText" > Aradığınız Kelime : {{ filterText }}</small>
+                </div>
+        
+                <div class="alert alert-success">{{filteredMovies.length }} Film Bulundu. </div>
+                <!-- <ng-template [ngTemplateOutlet] = "moviesList2" [ngTemplateOutletContext] = "{ movies : popularMovies}"></ng-template> -->
+                <ng-template [ngTemplateOutlet] = "moviesList1"></ng-template>
+            </div>
+        </div>
+      </div>
+</div>
+  
+<ng-template #no_movies>
+    <div class="alert alert-danger" > Film Bulunamadı </div>
+</ng-template>
+
+<div *ngIf="error">
+    <div class="alert alert-danger" >{{error}}</div>
+</div>
+
+<app-movie></app-movie>  
+<ng-template #moviesList1>
+    <div class="card mb-3" *ngFor="let item of filteredMovies"> <!-- let item of filteredMovies | moviesFilter : filterText        Pipe ile filtrelemede kullanılır   -->
+        <div class="row">
+            <div class="col-md-3">
+                <img routerLink = "/movies/{{item.id }}" src="assets/img/{{item.imageUrl}}" class="img-fluid rounded-start" style="cursor: pointer;" alt="">
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h2 class="card-title">{{ item.title | uppercase }}</h2>
+                    <p class="card-text">{{item.description | summary : 20}}</p>
+                    <!-- <p class="card-text">{{item.datePublished | date: "shortDate"}}</p> -->
+                    <a routerLink = "/movies/{{item.id }}" class="btn btn-sm btn-outline-primary">Details</a>
+                    <a (click)="addToList($event, item)" class="btn btn-sm btn-success ms-1">Add List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+<div class="row text-center">
+    <div class="col-md-12">
+        <div *ngIf="loading" class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<!-- <ng-template #moviesList2 let-filmler= "movies">
+
+    <h2>Popular Movies</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
+  
+        <div class="col" *ngFor="let item of filmler">
+            <div class="card h-100">
+                    <img src="assets/img/{{item.imageUrl}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ item.title }}</h2>
+                        <p class="card-text">{{item.description}}</p>
+                        <button class="btn btn-sm btn-outline-primary">Details</button>
+                    </div>
+            </div>
+        </div>
+          
+    </div>
+</ng-template> -->
+
+<!-- <h4>upper - lower - title pipe</h4>
+ <p>{{ "Xiaomi POCO X3 NFC"}}</p>
+ <p>{{ "Xiaomi POCO X3 NFC" | lowercase}}</p>
+ <p>{{ "Xiaomi POCO X3 NFC" | uppercase}}</p>
+ <p>{{ "Xiaomi POCO X3 NFC" | titlecase}}</p>
+
+ <h4>Date Pipe</h4>
+ <p> {{ today}}</p>
+ <p> {{ today | date}}</p>
+ <p> {{ today | date : "fullDate"}}</p>
+ <p> {{ today | date : "medium"}}</p>
+ <p> {{ today | date : "shortTime"}}</p>
+ <p> {{ today | date : "h:mm:ss"}}</p>
+
+
+ <br><br>
+
+ <h4>Decimal Pipe</h4>
+<p>{{ 2.235458 | number}}</p>
+<p>{{ 2.235458 | number : "1.0-2"}}</p>
+<p>{{ 2.235458 | number : "4.1-7"}}</p>
+
+<br><br>
+<h4> Currency Pipe</h4>
+
+<p>{{ 395 | currency }}</p>
+<p>{{ 395 | currency : "EUR"}}</p>
+<p>{{ 395 | currency : "TRY"}}</p>
+
+<br><br>
+<h4> Percent Pipe</h4>
+
+<p> {{ 0.2495 | percent  }}</p>
+<p> {{ 0.2495 | percent  }}</p>
+<p> {{ 1.26 | percent : "1.2-4" }}</p>
+<p> {{ 3/4 | percent }}</p>
+<p> {{ 3/4 | percent : "2.2-4" }}</p> -->
+
