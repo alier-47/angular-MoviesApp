@@ -1,0 +1,68 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Macera  ",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "1.jpg",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Romantik",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "2.jpg",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "Romantik",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "3.jpg",
+      "categoryId": 3
+    },
+    {
+      "id": 4,
+      "title": "Romantik",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "4.jpg",
+      "categoryId": 3
+    },
+    {
+      "id": 5,
+      "title": "Romantik",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "4.jpg",
+      "categoryId": 4
+    },
+    {
+      "id": 6,
+      "title": "Aksiyon",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quibusdam, mollitia adipisci facere fuga, similique explicabo eius, soluta omnis autem maiores. Porro labore alias odio blanditiis fugit? Quas, eum assumenda!",
+      "imageUrl": "4.jpg",
+      "categoryId": 4
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Bilim Kurgu"
+    },
+    {
+      "id": 2,
+      "name": "Dram"
+    },
+    {
+      "id": 3,
+      "name": "Romantik"
+    },
+    {
+      "id": 4,
+      "name": "Macera"
+    },
+    {
+      "id": 5,
+      "name": "Aksiyon"
+    }
+  ]
+}
